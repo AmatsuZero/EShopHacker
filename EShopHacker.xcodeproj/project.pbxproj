@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		800AAF7221008F9200CAF59A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800AAF7121008F9200CAF59A /* AppDelegate.swift */; };
+		800AAF7421008F9200CAF59A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800AAF7321008F9200CAF59A /* ViewController.swift */; };
+		800AAF7721008F9200CAF59A /* EShopHacker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 800AAF7521008F9200CAF59A /* EShopHacker.xcdatamodeld */; };
+		800AAF7921008F9500CAF59A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 800AAF7821008F9500CAF59A /* Assets.xcassets */; };
+		800AAF7C21008F9500CAF59A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 800AAF7A21008F9500CAF59A /* Main.storyboard */; };
+		800AAF8821008F9500CAF59A /* EShopHackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800AAF8721008F9500CAF59A /* EShopHackerTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		800AAF8421008F9500CAF59A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 800AAF6621008F9200CAF59A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 800AAF6D21008F9200CAF59A;
+			remoteInfo = EShopHacker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		800AAF6E21008F9200CAF59A /* EShopHacker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EShopHacker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		800AAF7121008F9200CAF59A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		800AAF7321008F9200CAF59A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		800AAF7621008F9200CAF59A /* EShopHacker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EShopHacker.xcdatamodel; sourceTree = "<group>"; };
+		800AAF7821008F9500CAF59A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		800AAF7B21008F9500CAF59A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		800AAF7D21008F9500CAF59A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		800AAF7E21008F9500CAF59A /* EShopHacker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EShopHacker.entitlements; sourceTree = "<group>"; };
+		800AAF8321008F9500CAF59A /* EShopHackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EShopHackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		800AAF8721008F9500CAF59A /* EShopHackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EShopHackerTests.swift; sourceTree = "<group>"; };
+		800AAF8921008F9500CAF59A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		800AAF6B21008F9200CAF59A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		800AAF8021008F9500CAF59A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		800AAF6521008F9200CAF59A = {
+			isa = PBXGroup;
+			children = (
+				800AAF7021008F9200CAF59A /* EShopHacker */,
+				800AAF8621008F9500CAF59A /* EShopHackerTests */,
+				800AAF6F21008F9200CAF59A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		800AAF6F21008F9200CAF59A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				800AAF6E21008F9200CAF59A /* EShopHacker.app */,
+				800AAF8321008F9500CAF59A /* EShopHackerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		800AAF7021008F9200CAF59A /* EShopHacker */ = {
+			isa = PBXGroup;
+			children = (
+				800AAF7121008F9200CAF59A /* AppDelegate.swift */,
+				800AAF7321008F9200CAF59A /* ViewController.swift */,
+				800AAF7821008F9500CAF59A /* Assets.xcassets */,
+				800AAF7A21008F9500CAF59A /* Main.storyboard */,
+				800AAF7D21008F9500CAF59A /* Info.plist */,
+				800AAF7E21008F9500CAF59A /* EShopHacker.entitlements */,
+				800AAF7521008F9200CAF59A /* EShopHacker.xcdatamodeld */,
+			);
+			path = EShopHacker;
+			sourceTree = "<group>";
+		};
+		800AAF8621008F9500CAF59A /* EShopHackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				800AAF8721008F9500CAF59A /* EShopHackerTests.swift */,
+				800AAF8921008F9500CAF59A /* Info.plist */,
+			);
+			path = EShopHackerTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		800AAF6D21008F9200CAF59A /* EShopHacker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 800AAF8C21008F9500CAF59A /* Build configuration list for PBXNativeTarget "EShopHacker" */;
+			buildPhases = (
+				800AAF6A21008F9200CAF59A /* Sources */,
+				800AAF6B21008F9200CAF59A /* Frameworks */,
+				800AAF6C21008F9200CAF59A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EShopHacker;
+			productName = EShopHacker;
+			productReference = 800AAF6E21008F9200CAF59A /* EShopHacker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		800AAF8221008F9500CAF59A /* EShopHackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 800AAF8F21008F9500CAF59A /* Build configuration list for PBXNativeTarget "EShopHackerTests" */;
+			buildPhases = (
+				800AAF7F21008F9500CAF59A /* Sources */,
+				800AAF8021008F9500CAF59A /* Frameworks */,
+				800AAF8121008F9500CAF59A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				800AAF8521008F9500CAF59A /* PBXTargetDependency */,
+			);
+			name = EShopHackerTests;
+			productName = EShopHackerTests;
+			productReference = 800AAF8321008F9500CAF59A /* EShopHackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		800AAF6621008F9200CAF59A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = Daubert;
+				TargetAttributes = {
+					800AAF6D21008F9200CAF59A = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					800AAF8221008F9500CAF59A = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 800AAF6D21008F9200CAF59A;
+					};
+				};
+			};
+			buildConfigurationList = 800AAF6921008F9200CAF59A /* Build configuration list for PBXProject "EShopHacker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 800AAF6521008F9200CAF59A;
+			productRefGroup = 800AAF6F21008F9200CAF59A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				800AAF6D21008F9200CAF59A /* EShopHacker */,
+				800AAF8221008F9500CAF59A /* EShopHackerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		800AAF6C21008F9200CAF59A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				800AAF7921008F9500CAF59A /* Assets.xcassets in Resources */,
+				800AAF7C21008F9500CAF59A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		800AAF8121008F9500CAF59A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		800AAF6A21008F9200CAF59A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				800AAF7721008F9200CAF59A /* EShopHacker.xcdatamodeld in Sources */,
+				800AAF7421008F9200CAF59A /* ViewController.swift in Sources */,
+				800AAF7221008F9200CAF59A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		800AAF7F21008F9500CAF59A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				800AAF8821008F9500CAF59A /* EShopHackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		800AAF8521008F9500CAF59A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 800AAF6D21008F9200CAF59A /* EShopHacker */;
+			targetProxy = 800AAF8421008F9500CAF59A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		800AAF7A21008F9500CAF59A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				800AAF7B21008F9500CAF59A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		800AAF8A21008F9500CAF59A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		800AAF8B21008F9500CAF59A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		800AAF8D21008F9500CAF59A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = EShopHacker/EShopHacker.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TCU9L9SQC4;
+				INFOPLIST_FILE = EShopHacker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dabuert.symbol.EShopHacker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		800AAF8E21008F9500CAF59A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = EShopHacker/EShopHacker.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TCU9L9SQC4;
+				INFOPLIST_FILE = EShopHacker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dabuert.symbol.EShopHacker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		800AAF9021008F9500CAF59A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TCU9L9SQC4;
+				INFOPLIST_FILE = EShopHackerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dabuert.symbol.EShopHackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EShopHacker.app/Contents/MacOS/EShopHacker";
+			};
+			name = Debug;
+		};
+		800AAF9121008F9500CAF59A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TCU9L9SQC4;
+				INFOPLIST_FILE = EShopHackerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dabuert.symbol.EShopHackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EShopHacker.app/Contents/MacOS/EShopHacker";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		800AAF6921008F9200CAF59A /* Build configuration list for PBXProject "EShopHacker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				800AAF8A21008F9500CAF59A /* Debug */,
+				800AAF8B21008F9500CAF59A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		800AAF8C21008F9500CAF59A /* Build configuration list for PBXNativeTarget "EShopHacker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				800AAF8D21008F9500CAF59A /* Debug */,
+				800AAF8E21008F9500CAF59A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		800AAF8F21008F9500CAF59A /* Build configuration list for PBXNativeTarget "EShopHackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				800AAF9021008F9500CAF59A /* Debug */,
+				800AAF9121008F9500CAF59A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		800AAF7521008F9200CAF59A /* EShopHacker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				800AAF7621008F9200CAF59A /* EShopHacker.xcdatamodel */,
+			);
+			currentVersion = 800AAF7621008F9200CAF59A /* EShopHacker.xcdatamodel */;
+			path = EShopHacker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 800AAF6621008F9200CAF59A /* Project object */;
+}
