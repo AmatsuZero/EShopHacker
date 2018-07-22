@@ -31,7 +31,7 @@ class Network: XCTestCase {
         }, onCompleted: {
             expectation.fulfill()
         }).disposed(by: bag)
-        wait(for: [expectation], timeout: 30)
+        wait(for: [expectation], timeout: 3000)
     }
 
     func testGameJAP() {
@@ -56,5 +56,17 @@ class Network: XCTestCase {
             expectation.fulfill()
         }).disposed(by: bag)
         wait(for: [expectation], timeout: 30)
+    }
+    
+    func testAmericaShops() {
+        let expectation = XCTestExpectation(description: "Gets all active eshops on american countries")
+        SwithEShop.shared.getShopsAmerica().subscribe(onNext: {
+            print($0)
+        }, onError: {
+            XCTFail($0.localizedDescription)
+        }, onCompleted: {
+            expectation.fulfill()
+        }).disposed(by: bag)
+         wait(for: [expectation], timeout: 30)
     }
 }

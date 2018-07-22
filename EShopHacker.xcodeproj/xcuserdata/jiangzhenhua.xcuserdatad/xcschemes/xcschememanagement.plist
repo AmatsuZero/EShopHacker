@@ -7,7 +7,35 @@
 		<key>EShopHacker.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>0</integer>
+		</dict>
+		<key>EShopHelper.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>25</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>800AAF6D21008F9200CAF59A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>800AAF8221008F9500CAF59A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>800AAFB021034A4B00CAF59A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>800AAFC621034A5600CAF59A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

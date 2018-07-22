@@ -10,7 +10,39 @@ import Foundation
 import SWXMLHash
 import SwiftyJSON
 
-struct GameUS: Codable, Hashable, Equatable {
+protocol GameCodeProtocol {
+    var gameCode: String? { get }
+    var uid: String? { get }
+}
+
+enum Region: Int {
+    case americas = 1, europe, asia
+    
+    var pattern: String {
+        switch self {
+        case .americas:
+            return "HAC\\w(\\w{4})"
+        case .europe:
+            return "HAC\\w(\\w{4})"
+        case .asia:
+            return "\\/HAC(\\w{4})"
+        }
+    }
+    
+    var regex: NSRegularExpression? {
+       return try? NSRegularExpression(pattern: pattern, options: .caseInsensitive)
+    }
+}
+
+struct GameUS: Codable, Hashable, Equatable, GameCodeProtocol {
+    var gameCode: String? {
+        return code?.matches(for: Region.americas.pattern).first
+    }
+    
+    var uid: String? {
+        return nsUID
+    }
+    
     var hashValue: Int {
         return slug?.hashValue ?? 0
     }
@@ -20,7 +52,7 @@ struct GameUS: Codable, Hashable, Equatable {
     }
     
     enum CodingKeys: String, CodingKey {
-        case gameCode = "game_code"
+        case code = "game_code"
         case isBuyOnline = "buyonline"
         case frontBoxArt = "front_box_art"
         case eshopPrice = "eshop_price"
@@ -39,7 +71,7 @@ struct GameUS: Codable, Hashable, Equatable {
         case canBuyItNow = "buyitnow"
     }
     
-    let gameCode: String?
+    let code: String?
     let isBuyOnline: Bool?
     let frontBoxArt: String?
     let eshopPrice: Double?
@@ -58,7 +90,7 @@ struct GameUS: Codable, Hashable, Equatable {
     let canBuyItNow: Bool?
     
     init(json: JSON) {
-        gameCode = json["game_code"].string
+        code = json["game_code"].string
         isBuyOnline = json["buyonline"].string?.toBool()
         frontBoxArt = json["front_box_art"].string
         eshopPrice = json["eshop_price"].string?.toDouble()
@@ -78,7 +110,18 @@ struct GameUS: Codable, Hashable, Equatable {
     }
 }
 
-struct GameEU: Codable {
+struct GameEU: Codable, GameCodeProtocol {
+    var gameCode: String? {
+        guard let code = productCode?.first else {
+            return nil
+        }
+        return code.matches(for: Region.europe.pattern).first
+    }
+    
+    var uid: String? {
+        return nsUIDs?.first
+    }
+    
     enum CodingKeys: String, CodingKey {
         case ageRatingType = "age_rating_type"
         case ageRatingValue = "age_rating_value"
@@ -221,7 +264,15 @@ struct GameEU: Codable {
     }
 }
 
-struct GameJP: Codable {
+struct GameJP: Codable, GameCodeProtocol {
+    var gameCode: String? {
+        return screenShotImageURL?.matches(for: Region.asia.pattern).first
+    }
+    
+    var uid: String? {
+        return linkURL?.matches(for: "\\d{14}").first
+    }
+    
     enum CodingKeys: String, CodingKey  {
         case linkURL = "LinkURL"
         case linkTarget = "LinkTarget"
@@ -269,10 +320,15 @@ struct GameJP: Codable {
     }
 }
 
-struct PriceData: Codable {
+struct PriceResponse: Codable {
     struct PriceError: Codable {
-        let code: String
-        let message: String
+        let code: String?
+        let message: String?
+        
+        init(json: JSON?) {
+            code = json?["code"].string
+            message = json?["message"].string
+        }
     }
     struct TitleData: Codable {
         enum CodingKeys: String, CodingKey  {
@@ -286,16 +342,42 @@ struct PriceData: Codable {
                 case currency = "currency"
                 case rawValue = "raw_value"
             }
-            let amount: String
-            let currency: String
-            let rawValue: String
+            let amount: String?
+            let currency: String?
+            let rawValue: String?
+            
+            init(json: JSON?) {
+                amount = json?["amount"].string
+                currency = json?["currency"].string
+                rawValue = json?["raw_value"].string
+            }
         }
-        let titleID: Int
-        let salesStatus: String
-        let regularPrice: [PriceData]
+        
+        let titleID: Int?
+        let salesStatus: String?
+        let regularPrice: [PriceData]?
+        
+        init(json: JSON?) {
+            titleID = json?["title_id"].int
+            salesStatus = json?["sales_status"].string
+            regularPrice = json?["regular_price"].array?.map { PriceData(json: $0) }
+        }
     }
-    let error: PriceError
-    let personalized: Bool
-    let country: String
-    let prices: [TitleData]
+    
+    struct CountryData: Codable {
+        let alpha2: String?
+        let name: String?
+    }
+    
+    let error: PriceError?
+    let personalized: Bool?
+    var country: CountryData? = nil
+    var prices: [TitleData]?
+    
+    init(json: JSON) {
+        error = PriceError(json: json["error"])
+        personalized = json["personalized"].bool
+        prices = json["prices"].array?.map { TitleData(json: $0) }
+    }
 }
+

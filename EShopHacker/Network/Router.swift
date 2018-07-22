@@ -9,10 +9,6 @@
 import Foundation
 import Alamofire
 
-enum Region: Int {
-    case americas = 1, europe, asia
-}
-
 enum EShopURL: URLConvertible, URLRequestConvertible {
     struct Option {
         var locale: String?
@@ -35,7 +31,7 @@ enum EShopURL: URLConvertible, URLRequestConvertible {
     }
     case us(Option)
     case eu(Option)
-    case price(Option)
+    case price(String, [String])
     case jap(JapConfig)
     
     func asURL() throws -> URL {
@@ -70,6 +66,12 @@ enum EShopURL: URLConvertible, URLRequestConvertible {
                 "sort": "sorting_title asc",
                 "start": 0,
                 "wt": "json"
+                ])
+        case .price(let country, let friendIds):
+            request = try URLEncoding.queryString.encode(request, with: [
+                "country": country,
+                "limit": PRICE_LIST_LIMIT,
+                "ids": friendIds
                 ])
         default:
             break
