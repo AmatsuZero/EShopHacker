@@ -25,6 +25,9 @@ extension String {
     }
     
     func slice(_ start: Int, _ length: Int? = nil) -> String {
+        guard start < self.count else {
+            return self
+        }
         let startIndex = self.index(self.startIndex, offsetBy: start+1)
         return length != nil
             ? String(self[startIndex...].prefix(length!))

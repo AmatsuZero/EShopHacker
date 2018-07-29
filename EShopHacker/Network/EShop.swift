@@ -38,7 +38,7 @@ final class SwithEShop {
                 }
             }
             return Disposables.create()
-            }.share(replay: 1, scope: .whileConnected)
+            }.share(replay: 1, scope: .forever)
     }
     
     private func _gamesAmerica(limit: Int? = nil,
@@ -118,64 +118,7 @@ final class SwithEShop {
                 }
                 return docs.map { GameEU(json: $0) }
             }
-            .share(replay: 1, scope: .whileConnected)
-    }
-    
-    func getPrices(alpha2Name: String, gameIds: [String], country: String) -> Observable<PriceResponse?> {
-        return Observable<PriceResponse?>.create { [weak self] observer -> Disposable in
-            guard let `self` = self else {
-                observer.onCompleted()
-                return Disposables.create()
-            }
-            self._getPrices(alpha2Name: alpha2Name, gameIds: gameIds, country: country) { (error, result) in
-                if let err = error {
-                    observer.onError(err)
-                } else {
-                    observer.onNext(result)
-                    observer.onCompleted()
-                }
-            }
-            return Disposables.create()
-            }.share(replay: 1, scope: .whileConnected)
-    }
-    
-    private func _getPrices(alpha2Name: String,
-                            gameIds: [String],
-                            offset: Int = 0,
-                            country: String,
-                            prices: [PriceResponse.TitleData] = [],
-                            completionHandler: @escaping (Error?, PriceResponse?) -> Void) {
-        let filteredIds = gameIds.slice(offset, offset + PRICE_LIST_LIMIT)
-        sessionManager
-            .request(EShopURL.price(alpha2Name, filteredIds))
-            .validate()
-            .responseData { [weak self] response in
-                guard let `self` = self, response.error == nil else {
-                    completionHandler(response.error, nil)
-                    return
-                }
-                guard let data = response.data,
-                    let json = try? JSON(data: data) else {
-                        completionHandler(nil, nil)
-                        return
-                }
-                var priceResponse = PriceResponse(json: json)
-                priceResponse.country = PriceResponse.CountryData(alpha2: alpha2Name, name: country)
-                if let p = priceResponse.prices, p.count + offset < gameIds.count {
-                    let accumulatedPrices = prices + p
-                    self._getPrices(alpha2Name: alpha2Name,
-                                    gameIds: gameIds,
-                                    offset: offset + PRICE_LIST_LIMIT,
-                                    country: country,
-                                    prices: accumulatedPrices,
-                                    completionHandler: completionHandler)
-                } else if priceResponse.prices != nil {
-                    priceResponse.prices! += prices
-                    completionHandler(nil, priceResponse)
-                } else {
-                    completionHandler(nil, priceResponse)
-                }
-        }
+            .share(replay: 1, scope: .forever)
     }
 }
 
@@ -224,4 +167,64 @@ extension SwithEShop {
         }
         return Observable.merge(subregions).toArray()
     }
+    
+    func getPrices(alpha2Name: String, gameIds: [String], country: String) -> Observable<PriceResponse?> {
+        return Observable<PriceResponse?>.create { [weak self] observer -> Disposable in
+            guard let `self` = self else {
+                observer.onCompleted()
+                return Disposables.create()
+            }
+            self._getPrices(alpha2Name: alpha2Name, gameIds: gameIds, country: country) { (error, result) in
+                if let err = error {
+                    observer.onError(err)
+                } else {
+                    observer.onNext(result)
+                    observer.onCompleted()
+                }
+            }
+            return Disposables.create()
+            }.share(replay: 1, scope: .forever)
+    }
+    
+    private func _getPrices(alpha2Name: String,
+                            gameIds: [String],
+                            offset: Int = 0,
+                            country: String,
+                            prices: [PriceResponse.TitleData] = [],
+                            completionHandler: @escaping (Error?, PriceResponse?) -> Void) {
+        let filteredIds = gameIds.slice(offset, offset + PRICE_LIST_LIMIT)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+            self?.sessionManager
+                .request(EShopURL.price(alpha2Name, filteredIds))
+                .validate()
+                .responseData { [weak self] response in
+                    guard let `self` = self, response.error == nil else {
+                        completionHandler(response.error, nil)
+                        return
+                    }
+                    guard let data = response.data,
+                        let json = try? JSON(data: data) else {
+                            completionHandler(nil, nil)
+                            return
+                    }
+                    var priceResponse = PriceResponse(json: json)
+                    priceResponse.country = PriceResponse.CountryData(alpha2: alpha2Name, name: country)
+                    if let p = priceResponse.prices, p.count + offset < gameIds.count {
+                        let accumulatedPrices = prices + p
+                        self._getPrices(alpha2Name: alpha2Name,
+                                        gameIds: gameIds,
+                                        offset: offset + PRICE_LIST_LIMIT,
+                                        country: country,
+                                        prices: accumulatedPrices,
+                                        completionHandler: completionHandler)
+                    } else if priceResponse.prices != nil {
+                        priceResponse.prices! += prices
+                        completionHandler(nil, priceResponse)
+                    } else {
+                        completionHandler(nil, priceResponse)
+                    }
+            }
+        }
+    }
+    
 }
