@@ -7,10 +7,20 @@
 //
 
 import UIKit
+import AVKit
 
 class EShopLoadingView: UIView {
     
     private let animationLayer = CALayer()
+    private lazy var audioPlayer: AVAudioPlayer? = {
+        guard let filePath = Bundle.main.path(forResource: "eShop Load", ofType: "wav") else {
+            return nil
+        }
+        let url = URL(fileURLWithPath: filePath)
+        let player = try? AVAudioPlayer(contentsOf: url)
+        player?.numberOfLoops = -1 // 无限播放
+        return player
+    }()
     
     private let fixedHeight: CGFloat = 44
     private let duration: CFTimeInterval = 1
@@ -33,7 +43,6 @@ class EShopLoadingView: UIView {
         label.textColor = .white
         label.textAlignment = .center
         label.frame = .init(x: 0, y: 0, width: 79, height: 31.5)
-        
         addSubview(label)
     }
     
@@ -83,14 +92,23 @@ class EShopLoadingView: UIView {
         label.frame.origin.x = rect.width - label.frame.width - 20
         label.frame.origin.y = rect.height - label.frame.height - 20
     }
+    
+    deinit {
+        audioPlayer?.stop()
+        audioPlayer = nil
+    }
 }
 
 extension EShopLoadingView: CAAnimationDelegate {
     func animationDidStart(_ anim: CAAnimation) {
-       
+        if audioPlayer?.isPlaying == false {
+            audioPlayer?.play()
+        }
     }
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        print(flag)
+        if audioPlayer?.isPlaying == true {
+            audioPlayer?.pause()
+        }
     }
 }

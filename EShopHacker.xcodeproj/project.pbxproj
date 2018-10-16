@@ -47,6 +47,7 @@
 		808A8BC0210D51960097B677 /* Dictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808A8BBF210D51960097B677 /* Dictionary+Extensions.swift */; };
 		808A8BC2210DAA610097B677 /* GZipUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808A8BC1210DAA600097B677 /* GZipUtility.swift */; };
 		80DC0E462176104F00DAD161 /* CALayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DC0E452176104F00DAD161 /* CALayer+Extensions.swift */; };
+		80DC0E4821762A6000DAD161 /* eShop Load.wav in Resources */ = {isa = PBXBuildFile; fileRef = 80DC0E4721762A6000DAD161 /* eShop Load.wav */; };
 		DC105DD896A82DE189521CEA /* Pods_mac_EShopHacker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E086E0B47D8FEDCF389380 /* Pods_mac_EShopHacker.framework */; };
 		F0FA995D75EED0432818A305 /* Pods_EShopHelperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB73013A12A5F2A132E5A4D /* Pods_EShopHelperTests.framework */; };
 /* End PBXBuildFile section */
@@ -112,6 +113,7 @@
 		808A8BBF210D51960097B677 /* Dictionary+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extensions.swift"; sourceTree = "<group>"; };
 		808A8BC1210DAA600097B677 /* GZipUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GZipUtility.swift; sourceTree = "<group>"; };
 		80DC0E452176104F00DAD161 /* CALayer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extensions.swift"; sourceTree = "<group>"; };
+		80DC0E4721762A6000DAD161 /* eShop Load.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "eShop Load.wav"; sourceTree = "<group>"; };
 		9DA730DEB62846D66129CE34 /* Pods-ios-EShopHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-EShopHelper.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-EShopHelper/Pods-ios-EShopHelper.release.xcconfig"; sourceTree = "<group>"; };
 		9E853DCD045397F75F897B03 /* Pods-mac-EShopHacker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mac-EShopHacker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mac-EShopHacker/Pods-mac-EShopHacker.debug.xcconfig"; sourceTree = "<group>"; };
 		C89CF3ACD2CF559713E2441A /* Pods_EShopHackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EShopHackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -284,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				803208E22175687B00BDD74E /* EShopLoadingView.swift */,
+				80DC0E4721762A6000DAD161 /* eShop Load.wav */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				800AAFC121034A5500CAF59A /* LaunchScreen.storyboard in Resources */,
+				80DC0E4821762A6000DAD161 /* eShop Load.wav in Resources */,
 				800AAFBE21034A5500CAF59A /* Assets.xcassets in Resources */,
 				800AAFB921034A4B00CAF59A /* Main.storyboard in Resources */,
 			);
