@@ -13,6 +13,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        let controller = NSViewController()
+        let subController = NSViewController()
+        controller.addChildViewController(subController)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

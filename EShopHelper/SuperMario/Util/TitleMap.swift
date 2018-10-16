@@ -25,8 +25,8 @@ class TileMap: SKNode {
         case none = 0, map, layer, ObjectGroup, object, tile, imageLayer
     }
     
-    enum OrientationStyle: UInt {
-        case isometric, orthogonal
+    enum OrientationStyle: String {
+        case isometric = "isometric", orthogonal = "orthogonal"
     }
     
     struct TileFlags: OptionSet {
@@ -367,6 +367,10 @@ class TileMap: SKNode {
         
         internal var zOrderCount = 0
         
+        override init() {
+            super.init()
+        }
+        
         required init?(coder aDecoder: NSCoder) {
             super.init()
             name = aDecoder.decodeObject(forKey: "ImageLayerName") as? String ?? ""
@@ -392,6 +396,10 @@ class TileMap: SKNode {
         var properties = [String: Any]()
         
         internal var zOrderCount = 0
+        
+        override init() {
+            super.init()
+        }
         
         required init?(coder aDecoder: NSCoder) {
             super.init()
@@ -448,7 +456,7 @@ class TileMap: SKNode {
     private(set) var layers = [LayerInfo]()
     var imageLayers = [ImageLayer]()
     var objectGroups = [ObjectGroup]()
-    var gidData = [Data]()
+    var gidData = [String]()
     
     private var currentString = ""
     private var storingCharacters = false
@@ -466,7 +474,7 @@ class TileMap: SKNode {
         tileSize = aDecoder.decodeCGSize(forKey: "TileMapTileSize")
         parentElement = PropertyType(rawValue: aDecoder.decodeInteger(forKey: "TileMapParentElement")) ?? .none
         parentGID = aDecoder.decodeInteger(forKey: "TileMapParentGid")
-        orientation = OrientationStyle(rawValue: UInt(aDecoder.decodeInteger(forKey: "TileMapOrientatio"))) ?? .isometric
+        orientation = OrientationStyle(rawValue: (aDecoder.decodeObject(forKey: "TileMapOrientatio") as? String ?? "")) ?? .isometric
         fileName = aDecoder.decodeObject(forKey: "TileMapFilename") as? String ?? ""
         resources = aDecoder.decodeObject(forKey: "TileMapResources") as? String ?? ""
         tilesets = aDecoder.decodeObject(forKey: "TileMapTilesets") as? [TilesetInfo] ?? []
@@ -474,7 +482,7 @@ class TileMap: SKNode {
         properties = aDecoder.decodeObject(forKey: "TileMapProperties") as? [String : Any] ?? [:]
         layers = aDecoder.decodeObject(forKey: "TileMapLayers") as? [LayerInfo] ?? []
         objectGroups = aDecoder.decodeObject(forKey: "TileMapObjectGroups") as? [ObjectGroup] ?? []
-        gidData = aDecoder.decodeObject(forKey: "TileMapGidData") as? [Data] ?? []
+        gidData = aDecoder.decodeObject(forKey: "TileMapGidData") as? [String] ?? []
         imageLayers = aDecoder.decodeObject(forKey: "TileMapImageLayers") as? [ImageLayer] ?? []
         zOrderCount = aDecoder.decodeInteger(forKey: "TileMapZOrderCount")
         
@@ -650,6 +658,78 @@ extension TileMap: XMLParserDelegate {
                 len = buffer.count
             } else if layerAttribute.contains(.gzip) || layerAttribute.contains(.zlib) {
                 let s = layer?.layerGridSize
+            }
+        default:
+            break
+        }
+    }
+    
+    func parser(_ parser: XMLParser,
+                didStartElement elementName: String,
+                namespaceURI: String?,
+                qualifiedName qName: String?,
+                attributes attributeDict: [String : String] = [:]) {
+        switch elementName {
+        case "map":
+            if let str = attributeDict["orientation"],
+                let value = OrientationStyle(rawValue: str.lowercased()),
+                let mapWidth = attributeDict["width"]?.cgFloatValue,
+                let mapHeight = attributeDict["height"]?.cgFloatValue,
+                let tilesetWidth = attributeDict["tilewidth"]?.cgFloatValue,
+                let tilesetHeight = attributeDict["tileheight"]?.cgFloatValue {
+                orientation = value
+                mapSize = CGSize(width: mapWidth, height: mapHeight)
+                tileSize = CGSize(width: tilesetWidth, height: tilesetHeight)
+            } else {
+                parser.abortParsing()
+            }
+            parentElement = .map
+        case "tileset":
+            guard attributeDict["source"] != nil else {
+                parser.abortParsing()
+                return
+            }
+            var gid = 0
+            if currentFirstGID == 0, let id = attributeDict["firstgid"]?.intValue {
+                gid = id
+            } else {
+                gid = currentFirstGID
+                currentFirstGID = 0
+            }
+            let tileset = TilesetInfo(gid: UInt8(gid), attributes: attributeDict)
+            tilesets.append(tileset)
+        case "tile":
+            if !storingCharacters, let info = tilesets.last, let id = attributeDict["id"]?.intValue {
+                parentGID = Int(info.firstGid) + id
+                tileProperties["\(parentGID)"] = [:]
+                parentElement = .tile
+            } else if let id = attributeDict["gid"] {
+                gidData.append(id)
+            }
+        case "imageLayer":
+            let imageLayer = ImageLayer()
+            imageLayer.name = attributeDict["name"] ?? ""
+            imageLayer.zOrderCount = zOrderCount
+            zOrderCount += 1
+            imageLayers.append(imageLayer)
+            parentElement = .imageLayer
+        case "objectgroup":
+            let objectGroup = ObjectGroup()
+            objectGroup.groupName = attributeDict["name"] ?? ""
+            if let x = attributeDict["x"]?.cgFloatValue,
+                let y = attributeDict["y"]?.cgFloatValue {
+                objectGroup.positionOffset = CGPoint(x: x, y: y)
+                objectGroup.zOrderCount = zOrderCount
+                zOrderCount += 1
+                objectGroups.append(objectGroup)
+            }
+            parentElement = .ObjectGroup
+        case "image":
+            if parentElement == .imageLayer {
+                imageLayers.last?.imageSource = attributeDict["source"] ?? ""
+            } else if let imageName = attributeDict["source"] as NSString? {
+                let path = imageName.deletingLastPathComponent
+                tilesets.last?.sourcceImage = "\(path.isEmpty ? resources : path)/\(imageName)"
             }
         default:
             break

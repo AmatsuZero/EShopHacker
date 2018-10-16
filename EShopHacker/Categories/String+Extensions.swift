@@ -7,6 +7,11 @@
 //
 
 import Foundation
+#if os(iOS)
+import UIKit
+#elseif os(OSX)
+import AppKit
+#endif
 
 extension String {
     func toBool() -> Bool? {
@@ -46,5 +51,19 @@ extension String {
             print("invalid regex: \(error.localizedDescription)")
             return []
         }
+    }
+    
+    var cgFloatValue: CGFloat? {
+        guard let n = NumberFormatter().number(from: self) else {
+            return nil
+        }
+        return CGFloat(truncating: n)
+    }
+    
+    var intValue: Int? {
+        guard let n = NumberFormatter().number(from: self) else {
+            return nil
+        }
+        return Int(truncating: n)
     }
 }

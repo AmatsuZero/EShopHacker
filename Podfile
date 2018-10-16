@@ -34,6 +34,7 @@ abstract_target 'ios' do
     target 'EShopHelper' do
         shared_pods
         pod 'Material', '~> 2.0'
+        pod 'SnapKit', '~> 4.0.0'
         
         target 'EShopHelperTests' do
             inherit! :search_paths

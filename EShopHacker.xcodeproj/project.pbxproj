@@ -37,9 +37,16 @@
 		800AAFD921034CED00CAF59A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800AAF9B2100A12500CAF59A /* Response.swift */; };
 		800AAFDB21034CF200CAF59A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800AAF9321009C8000CAF59A /* Router.swift */; };
 		800AAFDC21034CF500CAF59A /* EShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800AAF9821009D0600CAF59A /* EShop.swift */; };
+		803208E32175687B00BDD74E /* EShopLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803208E22175687B00BDD74E /* EShopLoadingView.swift */; };
+		803208E521756D5900BDD74E /* AudioProgressiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803208E421756D5900BDD74E /* AudioProgressiveView.swift */; };
+		803208E721759F8000BDD74E /* DispatchTime+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803208E621759F8000BDD74E /* DispatchTime+Extensions.swift */; };
+		803208E821759F8000BDD74E /* DispatchTime+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803208E621759F8000BDD74E /* DispatchTime+Extensions.swift */; };
+		803208EC2175BE2E00BDD74E /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803208EB2175BE2E00BDD74E /* UIColor+Extensions.swift */; };
+		803208ED2175BE2E00BDD74E /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803208EB2175BE2E00BDD74E /* UIColor+Extensions.swift */; };
 		808A8BBB210B341C0097B677 /* TitleMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808A8BBA210B341C0097B677 /* TitleMap.swift */; };
 		808A8BC0210D51960097B677 /* Dictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808A8BBF210D51960097B677 /* Dictionary+Extensions.swift */; };
 		808A8BC2210DAA610097B677 /* GZipUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808A8BC1210DAA600097B677 /* GZipUtility.swift */; };
+		80DC0E462176104F00DAD161 /* CALayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DC0E452176104F00DAD161 /* CALayer+Extensions.swift */; };
 		DC105DD896A82DE189521CEA /* Pods_mac_EShopHacker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E086E0B47D8FEDCF389380 /* Pods_mac_EShopHacker.framework */; };
 		F0FA995D75EED0432818A305 /* Pods_EShopHelperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB73013A12A5F2A132E5A4D /* Pods_EShopHelperTests.framework */; };
 /* End PBXBuildFile section */
@@ -97,9 +104,14 @@
 		800AAFC721034A5600CAF59A /* EShopHelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EShopHelperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		800AAFCB21034A5600CAF59A /* EShopHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EShopHelperTests.swift; sourceTree = "<group>"; };
 		800AAFCD21034A5600CAF59A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		803208E22175687B00BDD74E /* EShopLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EShopLoadingView.swift; sourceTree = "<group>"; };
+		803208E421756D5900BDD74E /* AudioProgressiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioProgressiveView.swift; sourceTree = "<group>"; };
+		803208E621759F8000BDD74E /* DispatchTime+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchTime+Extensions.swift"; sourceTree = "<group>"; };
+		803208EB2175BE2E00BDD74E /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		808A8BBA210B341C0097B677 /* TitleMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleMap.swift; sourceTree = "<group>"; };
 		808A8BBF210D51960097B677 /* Dictionary+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extensions.swift"; sourceTree = "<group>"; };
 		808A8BC1210DAA600097B677 /* GZipUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GZipUtility.swift; sourceTree = "<group>"; };
+		80DC0E452176104F00DAD161 /* CALayer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extensions.swift"; sourceTree = "<group>"; };
 		9DA730DEB62846D66129CE34 /* Pods-ios-EShopHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-EShopHelper.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-EShopHelper/Pods-ios-EShopHelper.release.xcconfig"; sourceTree = "<group>"; };
 		9E853DCD045397F75F897B03 /* Pods-mac-EShopHacker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mac-EShopHacker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mac-EShopHacker/Pods-mac-EShopHacker.debug.xcconfig"; sourceTree = "<group>"; };
 		C89CF3ACD2CF559713E2441A /* Pods_EShopHackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EShopHackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,6 +242,7 @@
 				800AAFA82101F7C200CAF59A /* String+Extensions.swift */,
 				800AAFAA2102003A00CAF59A /* Array+Extensions.swift */,
 				808A8BBF210D51960097B677 /* Dictionary+Extensions.swift */,
+				803208E621759F8000BDD74E /* DispatchTime+Extensions.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -244,6 +257,8 @@
 		800AAFB221034A4B00CAF59A /* EShopHelper */ = {
 			isa = PBXGroup;
 			children = (
+				803208EA2175BE1400BDD74E /* Extensions */,
+				803208E12175684000BDD74E /* Launch */,
 				808A8B92210A0D9D0097B677 /* SuperMario */,
 				800AAFB321034A4B00CAF59A /* AppDelegate.swift */,
 				800AAFB521034A4B00CAF59A /* ViewController.swift */,
@@ -265,9 +280,35 @@
 			path = EShopHelperTests;
 			sourceTree = "<group>";
 		};
+		803208E12175684000BDD74E /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				803208E22175687B00BDD74E /* EShopLoadingView.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		803208E92175A5D300BDD74E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				803208E421756D5900BDD74E /* AudioProgressiveView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		803208EA2175BE1400BDD74E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				803208EB2175BE2E00BDD74E /* UIColor+Extensions.swift */,
+				80DC0E452176104F00DAD161 /* CALayer+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		808A8B92210A0D9D0097B677 /* SuperMario */ = {
 			isa = PBXGroup;
 			children = (
+				803208E92175A5D300BDD74E /* Views */,
 				808A8BBC210B35150097B677 /* Util */,
 			);
 			path = SuperMario;
@@ -604,6 +645,7 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON-iOS/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -616,6 +658,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -667,6 +710,8 @@
 			files = (
 				808A8BC0210D51960097B677 /* Dictionary+Extensions.swift in Sources */,
 				800AAFA92101F7C200CAF59A /* String+Extensions.swift in Sources */,
+				803208E721759F8000BDD74E /* DispatchTime+Extensions.swift in Sources */,
+				803208EC2175BE2E00BDD74E /* UIColor+Extensions.swift in Sources */,
 				800AAF9721009CCE00CAF59A /* Constants.swift in Sources */,
 				800AAF9421009C8000CAF59A /* Router.swift in Sources */,
 				800AAFA72101CE5A00CAF59A /* Date+Extensions.swift in Sources */,
@@ -697,10 +742,15 @@
 				800AAFBC21034A4C00CAF59A /* EShopHelper.xcdatamodeld in Sources */,
 				800AAFD721034CE300CAF59A /* Array+Extensions.swift in Sources */,
 				800AAFDB21034CF200CAF59A /* Router.swift in Sources */,
+				803208E821759F8000BDD74E /* DispatchTime+Extensions.swift in Sources */,
 				800AAFDC21034CF500CAF59A /* EShop.swift in Sources */,
 				808A8BC2210DAA610097B677 /* GZipUtility.swift in Sources */,
 				800AAFD921034CED00CAF59A /* Response.swift in Sources */,
 				800AAFD521034CDD00CAF59A /* Date+Extensions.swift in Sources */,
+				803208E521756D5900BDD74E /* AudioProgressiveView.swift in Sources */,
+				80DC0E462176104F00DAD161 /* CALayer+Extensions.swift in Sources */,
+				803208ED2175BE2E00BDD74E /* UIColor+Extensions.swift in Sources */,
+				803208E32175687B00BDD74E /* EShopLoadingView.swift in Sources */,
 				808A8BBB210B341C0097B677 /* TitleMap.swift in Sources */,
 				800AAFD621034CE000CAF59A /* String+Extensions.swift in Sources */,
 				800AAFD821034CE700CAF59A /* Constants.swift in Sources */,
